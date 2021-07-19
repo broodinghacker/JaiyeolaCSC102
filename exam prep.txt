@@ -1,0 +1,208 @@
+import pandas 
+
+def sims():
+    condition = int(input("Amount of data: "))
+    names = []
+    departments = []
+    levels = []
+    matric_numbers = []
+    
+    for a in range (condition):
+        name = str(input("Input a name: "))
+        names.append(name)
+        department = str(input("Input a department: "))
+        departments.append(department)
+        level = int(input("Input a level: "))
+        levels.append(level)
+        matric_number = int(input("Input Matric_no: "))
+        matric_numbers.append(matric_number)
+        print("...................")
+        
+    data = {
+        "Name": names, 
+        "Department": departments,
+        "Levels": levels,
+        "Matric Number": matric_numbers
+    }
+    
+    Data_frame = pandas.DataFrame(data)
+
+    return Data_frame
+
+
+print(sims())
+
+
+
+
+
+----------------------------------------------------------------------------------------
+
+
+
+
+class Employee:
+   empCount = 0
+   def __init__(self, name, salary):
+      self.name = name
+      self.salary = salary
+      Employee.empCount += 1
+   def displayCount(self):
+     print( f"Total Employee  {Employee.empCount}")
+   def displayEmployee(self):
+       print (f"Name : {self.name}  Salary:  {self.salary}")
+emp1 = Employee("Zara", 2000)
+emp2 = Employee("Manni", 5000)
+emp1.displayEmployee()
+emp2.displayEmployee()
+print (f"Total Employee  { Employee.empCount}")
+
+
+-------------------------------------------------------------------------------------------
+
+a = int(input('Enter a nunber'))
+d  = 1
+
+for i in range(1,a+1):
+    d = d*i
+print(d)
+
+--------------------------------------------------------------------------------------------
+
+class Bird:
+  def intro(self):
+    print("There are many types of birds.")
+      
+  def flight(self):
+    print("Most of the birds can fly but some cannot.")
+    
+class sparrow(Bird):
+  def flight(self):
+    print("Sparrows can fly.")
+      
+class ostrich(Bird):
+  def flight(self):
+    print("Ostriches cannot fly.")
+      
+obj_bird = Bird()
+obj_spr = sparrow()
+obj_ost = ostrich()
+  
+obj_bird.intro()
+obj_bird.flight()
+  
+obj_spr.intro()
+obj_spr.flight()
+  
+obj_ost.intro()
+obj_ost.flight()
+
+------------------------------------------------------------------------------
+
+class Orange:
+    def __init__(self, thequantity, thepriceperunit):
+        self.quantity = thequantity
+        self.priceperunit = thepriceperunit
+
+    def checkQuantityRequested (self, thequantity):
+        if( thequantity > self.quantity ):
+            return  -1
+        else:
+            return  thequantity
+
+    def calculateTotalCost(self, thequantity):
+        return  self.priceperunit * thequantity
+
+    @staticmethod
+    def displayTotalCost(cost):
+        print('Total cost is #' + str(cost))
+
+    @staticmethod
+    def thankYouMessage():
+        print('Thanks for shopping with us !')
+
+
+theoranges = Orange(20,10) 
+
+print('Welcome to Owolabi Store, Please select Orange quantity!')
+theorder = input()
+quantitychecker = theoranges.checkQuantityRequested(int(theorder))
+
+while(quantitychecker  == -1):
+    print('Welcome to Owolabi Store, Please enter Orange quanity not more than ' + str (theoranges.quantity))
+    theorder = input()
+    quantitychecker = theoranges.checkQuantityRequested(int(theorder))
+
+theTotalCost = theoranges.calculateTotalCost(quantitychecker)
+
+Orange.displayTotalCost(theTotalCost)
+Orange.thankYouMessage()
+
+-----------------------------------------------------------------------------------------------------
+
+
+class XBank:
+    loggedinCounter = 0
+    def __init__(self,theatmpin,theaccountbalance,thename):
+        self.atmpin = theatmpin
+        self.accountbalance = theaccountbalance
+        self.name = thename
+        XBank.loggedinCounter  = XBank.loggedinCounter + 1
+    
+    def CollectMoney(self, amounttowithdraw):
+        if(amounttowithdraw > self.accountbalance):
+            print("Sorry we are not able to process at this time")
+        else:
+            print("Collect your cash....Thanks for banking with Xbank")
+    
+    def ChangePin(self, newPin):   
+        self.atmpin = newPin
+        print("Your Pin has been changed...Thanks for banking with Xbank")
+    @classmethod  
+    def NoOfCustomersLoggedin (cls):
+        print("we have a total of" + str(cls.loggedinCounter) + " that have logged in")
+        
+        
+
+f = open("C:\\Users\\SST-LAB\\Desktop\\database.txt",'r')
+
+#print(f.readline())
+password = []
+accountB = []
+name = []
+breaker =  []
+for x in f:
+   breaker = x.split(' ')
+   password.append(breaker[0])
+   accountB.append(breaker[1]) 
+   name.append(breaker[2])
+   break
+    
+
+print("enter your pin........")
+
+pasw = input()
+
+if(pasw ==password[0]):
+    customer = XBank(password[0],accountB[0],name[0])
+else:
+    print("sorry your password does not match")
+-------------------------------------------------------
+
+
+class Coffee:
+    
+    def __init__(self, themilk, thesugar, thecoffeemate):
+        self.milk  = themilk
+        self.sugar = thesugar
+        self.coffeemate = thecoffeemate
+        print(f"you now have your coffee with {self.milk} milk, {self.sugar} sugar and {self.sugar} coffeemate")
+        
+
+mySugarFreeCoffee = Coffee(2,0,1)
+
+myMuchSugarCoffee = Coffee(2,10,1)
+
+
+-------------------------------------------------------------
+
